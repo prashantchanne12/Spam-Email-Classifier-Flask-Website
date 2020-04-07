@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
