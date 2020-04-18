@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -12,6 +14,11 @@
 	body{
 		background: #f5f6fa;
 		padding: 29px;
+	}
+
+	.h {
+	border: 5px dashed lightblue;
+	border-width:0.5px;
 	}
 
 	#button{
@@ -43,7 +50,7 @@
 <body>
 		<form method="POST" class="col-lg-6 offset-lg-3" action="{{ url_for('predict') }}">
 		 <div class="row justify-content-center">
-		 	<h1>Spam Email Classification</h1>
+		 	<h1 class="h">Spam Email Classification</h1>
            
                 <textarea class="form-control" id="text" rows="3" name="text" required>
                 </textarea>
