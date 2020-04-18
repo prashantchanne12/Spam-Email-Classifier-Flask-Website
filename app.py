@@ -34,6 +34,9 @@ def predict():
             vector_data = vectorizer.transform(cleaned_text)
             print(type(vector_data))
             prediction = model.predict(vector_data)
+            predict_percentage = model.predict_proba(vector_data)[0]
+            not_spam = predict_percentage[0]*100
+            spam = predict_percentage[1]*100
             result = ''
             if prediction[0] == 1:
                 result = 'Spam'
@@ -43,7 +46,10 @@ def predict():
             print(prediction[0])
             print(result)
             
-            return render_template('index.html', prediction_text='Email is {}'.format(result))
+            return render_template('index.html', prediction_text=f'Email is {result}', 
+                                                 spam_percentage=f'{spam:.2f} %',
+                                                 not_spam_percentage=f'{not_spam:.2f} %')
+
        
 
 def clean_message(message, stop_words=set(stopwords.words('english'))):

@@ -31,6 +31,14 @@
         margin: 0 auto;
     }
 
+	.spam{
+		color:red;
+	}
+
+	.not_spam{
+		color:green;
+	}
+
 </style>
 <body>
 		<form method="POST" class="col-lg-6 offset-lg-3" action="{{ url_for('predict') }}">
@@ -43,10 +51,18 @@
              
 		</div>
 		</form>
-        <div class="alert alert-primary" role="alert">
-                <center> <h2 id='mail'> {{ prediction_text }} </h1> </center>
-        </div>
-        
+			
 
+        <div class="alert alert-primary" role="alert">
+            <center>     <h2 id='mail'> {{ prediction_text }} </h1> </center>
+        </div>
+	<center>
+		<div class="card border-primary mb-3" style="max-width: 18rem; margin-top:30px">
+			<div class="card-header">Spam & Not Spam Probability</div>
+			<div class="card-body">
+			<p class="card-text spam" >Spam : {{ spam_percentage }}</p>
+			<p class="card-text not_spam" >Not Spam : {{ not_spam_percentage }}</p>
+		</div>
+	</center>
 </body>
 </html>
