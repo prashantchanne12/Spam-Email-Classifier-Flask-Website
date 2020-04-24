@@ -28,6 +28,10 @@ def predict():
 
         if len(text.strip()) == 0:
             return render_template('index.html', prediction_text='Please Enter The Text!')
+           
+        elif len(text.strip()) <= 25:
+            return render_template('index.html', prediction_text='Text is too short!')
+        
         else:
             cleaned_text = []
             cleaned_text.append(clean_message(text))
